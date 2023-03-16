@@ -10,4 +10,6 @@ RUN  yum install -y  wget unzip &&\
 FROM amazoncorretto:8
 
 COPY --from=build /findsecbugs /findsecbugs
-ENTRYPOINT [ "/findsecbugs/findsecbugs.sh","-home","/findsecbugs"] 
+COPY run-findsecbugs-exit-zero.sh /findsecbugs
+RUN chmod +x /findsecbugs/run-findsecbugs-exit-zero.sh
+ENTRYPOINT [ "/findsecbugs/findsecbugs.sh","-home","/findsecbugs",]
