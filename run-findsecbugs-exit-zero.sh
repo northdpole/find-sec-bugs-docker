@@ -2,4 +2,4 @@
 
 set -xe
 
-/findsecbugs/findsecbugs.sh -exitcode 0 $@
+/findsecbugs/findsecbugs.sh $@ || true
